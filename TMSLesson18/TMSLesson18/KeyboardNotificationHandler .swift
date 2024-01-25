@@ -10,11 +10,11 @@ import UIKit
 class KeyboardNotificationHandler {
     
     let view: UIView
-    
-    init(view: UIView) {
-        self.view = view
-    }
-    
+
+      init(view: UIView) {
+          self.view = view
+      }
+
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -39,7 +39,9 @@ class KeyboardNotificationHandler {
     }
     
     @objc private func keyboardWillHide(notification: Notification) {
-        view.frame.origin.y = 0
-    }
-}
+           UIView.animate(withDuration: 0.3) {
+               self.view.frame.origin.y = 480
+           }
+       }
+   }
 

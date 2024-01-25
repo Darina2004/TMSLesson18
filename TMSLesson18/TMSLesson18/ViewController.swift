@@ -10,14 +10,14 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    let customView = CustomView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    let customView = CustomView(frame: CGRect(x: 0, y: 0, width: 400, height: 600))
     var keyboardHandler: KeyboardNotificationHandler?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        keyboardHandler = KeyboardNotificationHandler(view: customView)
+        keyboardHandler = KeyboardNotificationHandler(view: customView.mainTextField)
         
         view.addSubview(customView)
         addGestureRecognizers()
